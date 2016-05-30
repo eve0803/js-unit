@@ -1,0 +1,80 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>demo</title>
+    <style>
+       .eqWrap div {width:100px; height:100px; background:red; float:left; margin:10px;}
+    </style>
+</head>
+
+<body>
+<h3>index</h3>
+<div class="find">
+<input type="button" value="aaa" />
+<input type="button" value="bb" />
+<input type="button" value="ccc" />
+<input type="button" value="ddd" />
+</div>
+<h3>find</h3>
+<ul id="ul1">
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<ul>
+    <li class="box"></li>
+    <li class="box"></li>
+    <li></li>
+</ul>
+<ol>
+    <li></li>
+    <li></li>
+    <li></li>
+</ol>
+<h3>eq</h3>
+<div class="eqWrap">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+<h3>读取设置文字</h3>
+<input id="txt1" type="text" />
+<input id="btn1" type="button" value="读取文字" />
+<input id="btn2" type="button" value="设置文字" />
+<script src="js/EQuery.js"></script>
+<script>
+    $(function (){
+
+        (function(){
+            $('.eqWrap div').eq(0).css('background', 'green');
+        })();
+
+        (function(){
+            $('#btn1').click(function (){
+                alert($('#txt1').attr('value'));
+            });
+
+            $('#btn2').click(function (){
+                $('#txt1').attr('value', '这是EQuery')
+            });
+
+        })();
+
+        (function(){
+            $('ul').find('.box').css('background', 'red');
+        })();
+
+        (function(){
+            $('input[type=button]').click(function (){
+                alert($(this).index());
+            });
+        })();
+    });
+</script>
+</body>
+</html>
